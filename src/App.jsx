@@ -21,7 +21,7 @@ const ThoughtInput = () => {
   useEffect(() => {
     const fetchThoughts = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/thoughts");
+        const response = await axios.get("https://xavier-hbarabchckgrasdg.southeastasia-01.azurewebsites.net/thoughts");
         setThoughts(response.data);
       } catch (err) {
         console.error("Error fetching thoughts:", err);
@@ -41,7 +41,7 @@ const ThoughtInput = () => {
 
     try {
       // Add new thought via API
-      const response = await axios.post("http://localhost:5000/api/thoughts", newThought);
+      const response = await axios.post("https://xavier-hbarabchckgrasdg.southeastasia-01.azurewebsites.net/thoughts", newThought);
       setThoughts((prevThoughts) => [...prevThoughts, response.data]);
       setTitle("");
       setContent("");
@@ -53,7 +53,7 @@ const ThoughtInput = () => {
   const handleRemoveThought = async (id) => {
     try {
       // Delete thought via API
-      await axios.delete(`http://localhost:5000/api/thoughts/${id}`);
+      await axios.delete(`https://xavier-hbarabchckgrasdg.southeastasia-01.azurewebsites.net/thoughts/${id}`);
       setThoughts((prevThoughts) => prevThoughts.filter((thought) => thought.id !== id));
     } catch (err) {
       console.error("Error deleting thought:", err);
